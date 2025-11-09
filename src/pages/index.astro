@@ -1,16 +1,98 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+// const pageTitle = "Gabby's Cookbook";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Gabby's Cookbook</title>
-	</head>
-	<body>
-		<h1>Gabby's Cookbook</h1>
-	</body>
-</html>
+<BaseLayout pageTitle="Gabby's Cookbook">
+  <section id="hero">
+        <div class="wrapper">
+          <div class="grid col two-one">
+            <div class="intro">
+              <p><span class="subtitle">Welcome to Gabby's Cookbook!</span></p>
+              <h1>
+                Delicious, gluten free, home-cooked meals for the Celiac in the
+                family.
+              </h1>
+              <p class="lead">
+                Often a struggle for those new to the change in their diet, or
+                for those that just don’t get it, we have made it simple—No ads,
+                no gluten. Gabby’s Cookbook is a growing collection of her
+                favorite, best tasting gluten free recipes.
+                <a href="/about" class="buzz">About</a>
+              </p>
+              <a href="#recipes" class="btn">Explore Gluten Free</a>
+              <!-- patreon callout -->
+              <div id="patreon" class="grid col min-one">
+                <div>
+                  <img
+                    src="assets/images/icons/patreon.svg"
+                    alt="Support us on Patreon"
+                  />
+                </div>
+                <div>
+                  <p>
+                    Enjoying the site? Please consider supporting Gabby’s
+                    Cookbook on Patreon for just $2 a month.<br/>
+                    <a href="https://www.patreon.com/gabbyscookbook" class="buzz">Show my support</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <article class="recipe-card">
+              <div class="recipe-card-outer">
+                <img src="https://placehold.co/293x366" class="recipe" alt="Test Image" />
+                <div class="recipe-card-inner">
+                  <h1>Gluten Free Waffles</h1>
+                  <hr class="line" />
+                  <h2>With fresh berries & maple syrup</h2>
+                  <a href="/recipes/gluten-free-waffles" class="btn full">Let’s Make it</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="recipes">
+        <div class="wrapper">
+          <div id="filter">
+            <!-- algolia search will go here -->
+          </div>
+          <div class="recipe-cards">
+             <article class="recipe-card">
+              <div class="recipe-card-outer">
+                <img src="https://placehold.co/293x366" class="recipe" alt="Test Image" />
+                <div class="recipe-card-inner">
+                  <h1>Soba Noodle Salad</h1>
+                  <hr class="line" />
+                  <h2>With raw oyster mushrooms & pickled radishes</h2>
+                  <a href="/recipes/soba-noodle-salad" class="btn full">Let’s Make it</a>
+                </div>
+              </div>
+            </article>
+            <article class="recipe-card">
+              <div class="recipe-card-outer">
+                <img src="https://placehold.co/293x366" class="recipe" alt="Test Image" />
+                <div class="recipe-card-inner">
+                  <h1>Gluten Free Waffles</h1>
+                  <hr class="line" />
+                  <h2>With fresh berries & maple syrup</h2>
+                  <a href="/recipes/gluten-free-waffles" class="btn full">Let’s Make it</a>
+                </div>
+              </div>
+            </article>
+            <article class="recipe-card">
+              <div class="recipe-card-outer">
+                <img src="https://placehold.co/293x366" class="recipe" alt="Test Image" />
+                <div class="recipe-card-inner">
+                  <h1>Chocolate Chip Cookies</h1>
+                  <hr class="line" />
+                  <h2>With chocolate chunks & sea salt</h2>
+                  <a href="/recipes/chocolate-chip-cookies" class="btn full">Let’s Make it</a>
+                </div>
+              </div>
+            </article>
+            
+            
+          </div>
+        </div>
+      </section>
+</BaseLayout>
