@@ -17,7 +17,7 @@ const { frontmatter } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{frontmatter.title}</title>
+    <!-- <title>{frontmatter.title}</title> -->
     <Meta title={frontmatter.title} description={frontmatter.description} />
     <RecipeJSONLD
       name={frontmatter.title}
@@ -46,8 +46,8 @@ const { frontmatter } = Astro.props;
           <div>
             <img
               class="recipe-image"
-              src="https://placehold.co/293x366"
-              alt="Soba Noodle Salad with Raw Oyster Mushrooms and Pickled Radishes"
+              src={frontmatter.image.url}
+              alt={frontmatter.image.alt}
             />
           </div>
           <div>
@@ -62,7 +62,7 @@ const { frontmatter } = Astro.props;
                 >Prep Time: {frontmatter.prepTime}</span
               >
               <span class="cook-time">Cook Time: {frontmatter.cookTime}</span>
-              <span class="servings">Servings: {frontmatter.servings} </span>
+              <span class="servings">Servings: {frontmatter.recipeYield} </span>
             </div>
           </div>
         </div>
@@ -72,21 +72,16 @@ const { frontmatter } = Astro.props;
           <div>
             <h2>Ingredients</h2>
             <ul class="ingredients-list">
-                {frontmatter.ingredients.map((ingredient) => (
-                  <li>
-                    <label>
-                      <input type="checkbox" id="" name="" value="">
-                      {ingredient}
-                    </label>
-                  </li>
-                ))  }
+              {frontmatter.ingredients.map((ingredient: string) => (
+                <li><label><input type="checkbox" />{ingredient}</label></li>
+              ))}
             </ul>
           </div>
           <div>
             <h2>Instructions</h2>
             <ol class="recipe-instructions">
-                {frontmatter.instructions.map((instruction) => (
-                  <li>{instruction}</li>
+                {frontmatter.instructions.map((instruction: string, index: number) => (
+                  <li id={`step-${index + 1}`}>{instruction}</li>
                 ))  }
             </ol>
           </div>

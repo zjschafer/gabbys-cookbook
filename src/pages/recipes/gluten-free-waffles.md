@@ -1,16 +1,15 @@
 ---
 layout: ../../layouts/RecipeLayout.astro
 title: "Gluten Free Waffles"
-# pubDate: 2025-11-07
+datePublished: 2025-11-07
 description: "Topped with fresh blueberries, whipped cream, and a side of hickory smoked bacon."
-author: "Astro Learner"
+author: "Gabrielle Lisella Schafer"
 image:
   url: "https://docs.astro.build/assets/rose.webp"
   alt: "Placeholder image goes here"
-prepTime: PT10M
-cookTime: PT20M
-totalTime: PT30M
-servings: 8
+prepTime: 10
+cookTime: 20
+totalTime: 30
 ingredients:
   [
     "2 C. gluten free flour blend",
@@ -23,7 +22,18 @@ ingredients:
     "1 3/4 C. milk",
     "1/2 C. oil",
   ]
-instructions: ["test"]
+instructions:
+  [
+    "Preheat your waffle iron according to the machine's instructions.",
+    "Beat eggs in a medium bowl. Add in milk, vanilla, and oil. Set aside.",
+    "In a separate bowl, combine dry ingredients. Mix flour, sugar, cinnamon, baking powder, and salt.",
+    "Whisk wet and dry ingredients together thoroughly, breaking up any clumps.",
+    "Pour 1/3 cup of batter onto preheated iron and let it bake.",
+    "Plate waffle to cool. Repeat with remaining batter.",
+  ]
+recipeYield: 8
+recipeCategory: Breakfast
+recipeCuisine: American
 # Recipe categories for blog
 tags: ["breakfast"]
 ---

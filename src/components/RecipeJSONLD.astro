@@ -13,17 +13,17 @@ const structuredData = {
   "datePublished": Astro.props.datePublished,
   "description": Astro.props.description,
   "recipeIngredient": Astro.props.ingredients,
-  // "recipeInstructions": Astro.props.instructions,
-  "recipeInstructions": Astro.props.recipeInstructions.map((instruction, index) => ({
+  
+  "recipeInstructions": Astro.props.recipeInstructions.map((instruction: string, index: number) => ({
     "@type": "HowToStep",
     "name": `Step ${index + 1}`,
     "text": instruction,
-    "url": `${canonicalURL}#step${index + 1}`,
-    "position": index + 1
+    "url": `${canonicalURL}#step-${index + 1}`,
+    // "position": index + 1
   })),
   "recipeCategory": Astro.props.recipeCategory,
   "recipeCuisine": Astro.props.recipeCuisine,
-  "recipeYield": Astro.props.yield,
+  "recipeYield": Astro.props.recipeYield,
   "prepTime": Astro.props.prepTime,
   "cookTime": Astro.props.cookTime,
   "totalTime": Astro.props.totalTime,
