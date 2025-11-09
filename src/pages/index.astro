@@ -57,42 +57,24 @@ import RecipeCard from '../components/RecipeCard.astro';
             <!-- algolia search will go here -->
           </div>
           <div class="recipe-cards">
-             <article class="recipe-card">
-              <div class="recipe-card-outer">
-                <img src="https://placehold.co/293x366" class="recipe" alt="Test Image" />
-                <div class="recipe-card-inner">
-                  <h1>Soba Noodle Salad</h1>
-                  <hr class="line" />
-                  <h2>With raw oyster mushrooms & pickled radishes</h2>
-                  <a href="/recipes/soba-noodle-salad" class="btn full">Let’s Make it</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="recipe-card">
-              <div class="recipe-card-outer">
-                <img src="https://placehold.co/293x366" class="recipe" alt="Test Image" />
-                <div class="recipe-card-inner">
-                  <h1>Gluten Free Waffles</h1>
-                  <hr class="line" />
-                  <h2>With fresh berries & maple syrup</h2>
-                  <a href="/recipes/gluten-free-waffles" class="btn full">Let’s Make it</a>
-                </div>
-              </div>
-            </article>
-            <article class="recipe-card">
-              <div class="recipe-card-outer">
-                <img src="https://placehold.co/293x366" class="recipe" alt="Test Image" />
-                <div class="recipe-card-inner">
-                  <h1>Chocolate Chip Cookies</h1>
-                  <hr class="line" />
-                  <h2>With chocolate chunks & sea salt</h2>
-                  <a href="/recipes/chocolate-chip-cookies" class="btn full">Let’s Make it</a>
-                </div>
-              </div>
-            </article>
-            
-            
+            <RecipeCard
+              title="Soba Noodle Salad"
+              subtitle="With raw oyster mushrooms & pickled radishes"
+              image="https://placehold.co/293x366"
+              slug="soba-noodle-salad"
+            />
+            <RecipeCard
+              title="Gluten Free Waffles"
+              subtitle="With fresh berries & maple syrup"
+              image="https://placehold.co/293x366"
+              slug="gluten-free-waffles"
+            />
+            <RecipeCard
+              title="Chocolate Chip Cookies"
+              subtitle="With chocolate chunks & sea salt"
+              image="https://placehold.co/293x366"
+              slug="chocolate-chip-cookies"
+            />
           </div>
         </div>
       </section>
