@@ -1,0 +1,97 @@
+---
+import '../styles/_normalize.css';
+import '../styles/global.css';
+
+import Meta from '../components/Meta.astro';
+import RecipeJSONLD from '../components/RecipeJSONLD.astro';
+
+import Navigation from '../components/Navigation.astro';  
+import Footer from '../components/Footer.astro';
+
+// pulling in markdown frontmatter props
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{frontmatter.title}</title>
+    <Meta title={frontmatter.title} description={frontmatter.description} />
+    <RecipeJSONLD
+      name={frontmatter.title}
+      description={frontmatter.description}
+      image={frontmatter.image}
+      author={frontmatter.author}
+      datePublished={frontmatter.datePublished}
+      prepTime={frontmatter.prepTime}
+      cookTime={frontmatter.cookTime}
+      totalTime={frontmatter.totalTime}
+      keywords={frontmatter.keywords}
+      recipeYield={frontmatter.servings}
+      recipeCategory={frontmatter.category}
+      recipeCuisine={frontmatter.cuisine}
+      recipeIngredient={frontmatter.ingredients}
+      recipeInstructions={frontmatter.instructions}
+    />
+  </head>
+  <body>
+    <header>
+        <Navigation />
+    </header>
+    <main>
+      <section id="recipe-introduction">
+        <div class="wrapper">
+          <div>
+            <img
+              class="recipe-image"
+              src="https://placehold.co/293x366"
+              alt="Soba Noodle Salad with Raw Oyster Mushrooms and Pickled Radishes"
+            />
+          </div>
+          <div>
+            <h1>
+              {frontmatter.title}
+            </h1>
+            <p>
+              {frontmatter.description}
+            </p>
+            <div>
+              <span class="prep-time"
+                >Prep Time: {frontmatter.prepTime}</span
+              >
+              <span class="cook-time">Cook Time: {frontmatter.cookTime}</span>
+              <span class="servings">Servings: {frontmatter.servings} </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="recipe-details">
+        <div class="wrapper">
+          <div>
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list">
+                {frontmatter.ingredients.map((ingredient) => (
+                  <li>
+                    <label>
+                      <input type="checkbox" id="" name="" value="">
+                      {ingredient}
+                    </label>
+                  </li>
+                ))  }
+            </ul>
+          </div>
+          <div>
+            <h2>Instructions</h2>
+            <ol class="recipe-instructions">
+                {frontmatter.instructions.map((instruction) => (
+                  <li>{instruction}</li>
+                ))  }
+            </ol>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>

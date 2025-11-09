@@ -1,0 +1,63 @@
+---
+interface Props {
+    name: string;
+    description: string;
+    image: string;
+    author: string;
+    datePublished: string;
+    prepTime: string;
+    cookTime: string;
+    totalTime: string;
+    keywords: string[];
+    recipeYield: string;
+    recipeCategory: string;
+    recipeCuisine: string;
+    recipeIngredient: string[];
+    recipeInstructions: string[];
+}
+
+// const { 
+//     name,
+//     description,
+//     image,
+//     author,
+//     datePublished,
+//     prepTime,
+//     cookTime,
+//     totalTime,
+//     keywords,
+//     recipeYield,
+//     recipeCategory,
+//     recipeCuisine,
+//     recipeIngredient,
+//     recipeInstructions
+// } = Astro.props;    
+---
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org/",
+"@type": "Recipe",
+"name": {name},
+"image": {image},
+"author": {
+    "@type": "Person",
+    "name": {author}
+},
+"datePublished": {datePublished},
+"description": {description},
+"prepTime": {prepTime},
+"cookTime": {cookTime},
+"totalTime": {totalTime},
+"keywords": {JSON.stringify(keywords)},
+"recipeYield": {recipeYield},
+"recipeCategory": {recipeCategory},
+"recipeCuisine": {recipeCuisine},
+"recipeIngredient": [
+    {JSON.stringify(recipeIngredient)}
+],
+"recipeInstructions": [
+    {JSON.stringify(recipeInstructions)}
+]
+}   
+</script>

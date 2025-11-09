@@ -235,3 +235,67 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(293px, 1fr));
   /* grid-auto-columns: 293px; */
 }
+
+/* RecipeLayout specific */
+#recipe-introduction {
+  background-color: #ffffff;
+}
+#recipe-details {
+  background-color: var(--color-gray);
+}
+
+#recipe-introduction .wrapper,
+#recipe-details .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+@media (max-width: 768px) {
+  #recipe-introduction .wrapper,
+  #recipe-details .wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.recipe-image {
+  max-width: 600px;
+  height: auto;
+}
+
+ol.recipe-instructions {
+  margin: 16px 0;
+  /* padding-left: 20px; */
+}
+
+ol.recipe-instructions li {
+  position: relative;
+  margin-bottom: 24px;
+  padding-left: 20px;
+  line-height: 1.75;
+}
+
+ol.recipe-instructions li::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -30px;
+  color: #000000;
+
+  /* Circle styling */
+  border: 1px solid #000000;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+}
+
+ol.recipe-instructions li:nth-child(n + 10)::before {
+  width: 38px;
+  height: 38px;
+}
+
+ol.recipe-instructions li:nth-child(n + 10)::before {
+  top: -6px;
+  left: -36px;
+}
