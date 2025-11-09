@@ -1,0 +1,15 @@
+---
+const { title, subtitle, image, slug } = Astro.props;
+---
+
+<article class="recipe-card">
+    <div class="recipe-card-outer">
+    <img src={image} class="recipe" alt={`${title} ${subtitle}`} />
+    <div class="recipe-card-inner">
+        <h1>{title}</h1>
+        <hr class="line" />
+        <h2>{subtitle}</h2>
+        <a href={`/recipes/${slug}`} class="btn full">Let’s Make it</a>
+    </div>
+    </div>
+</article>
