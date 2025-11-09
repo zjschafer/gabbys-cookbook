@@ -1,63 +1,39 @@
 ---
-interface Props {
-    name: string;
-    description: string;
-    image: string;
-    author: string;
-    datePublished: string;
-    prepTime: string;
-    cookTime: string;
-    totalTime: string;
-    keywords: string[];
-    recipeYield: string;
-    recipeCategory: string;
-    recipeCuisine: string;
-    recipeIngredient: string[];
-    recipeInstructions: string[];
-}
-
-// const { 
-//     name,
-//     description,
-//     image,
-//     author,
-//     datePublished,
-//     prepTime,
-//     cookTime,
-//     totalTime,
-//     keywords,
-//     recipeYield,
-//     recipeCategory,
-//     recipeCuisine,
-//     recipeIngredient,
-//     recipeInstructions
-// } = Astro.props;    
----
-
-<script type="application/ld+json">
-{
-"@context": "https://schema.org/",
-"@type": "Recipe",
-"name": {name},
-"image": {image},
-"author": {
+const canonicalURL = new URL(Astro.url.pathname, Astro.url);
+const siteURL = new URL("/", Astro.url);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": Astro.props.name,
+  "image": Astro.props.image,
+  "author": {
     "@type": "Person",
-    "name": {author}
-},
-"datePublished": {datePublished},
-"description": {description},
-"prepTime": {prepTime},
-"cookTime": {cookTime},
-"totalTime": {totalTime},
-"keywords": {JSON.stringify(keywords)},
-"recipeYield": {recipeYield},
-"recipeCategory": {recipeCategory},
-"recipeCuisine": {recipeCuisine},
-"recipeIngredient": [
-    {JSON.stringify(recipeIngredient)}
-],
-"recipeInstructions": [
-    {JSON.stringify(recipeInstructions)}
-]
-}   
-</script>
+    "name": Astro.props.author
+  },
+  "datePublished": Astro.props.datePublished,
+  "description": Astro.props.description,
+  "recipeIngredient": Astro.props.ingredients,
+  // "recipeInstructions": Astro.props.instructions,
+  "recipeInstructions": Astro.props.recipeInstructions.map((instruction, index) => ({
+    "@type": "HowToStep",
+    "name": `Step ${index + 1}`,
+    "text": instruction,
+    "url": `${canonicalURL}#step${index + 1}`,
+    "position": index + 1
+  })),
+  "recipeCategory": Astro.props.recipeCategory,
+  "recipeCuisine": Astro.props.recipeCuisine,
+  "recipeYield": Astro.props.yield,
+  "prepTime": Astro.props.prepTime,
+  "cookTime": Astro.props.cookTime,
+  "totalTime": Astro.props.totalTime,
+  "url": canonicalURL,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Gabby's Cookbook",
+    "url": siteURL
+  }
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+

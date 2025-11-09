@@ -2,16 +2,29 @@
 layout: ../../layouts/RecipeLayout.astro
 title: "Gluten Free Waffles"
 # pubDate: 2025-11-07
-description: "Made with raw oyster mushrooms and pickled radishes, this soba noodle salad is a refreshing and healthy dish that combines the nutty flavor of soba noodles with the earthy taste of raw oyster mushrooms. The tangy crunch of pickled radishes sends it over the edge. It is perfect for a light lunch or a small side dish."
-# author: "Astro Learner"
+description: "Topped with fresh blueberries, whipped cream, and a side of hickory smoked bacon."
+author: "Astro Learner"
 image:
   url: "https://docs.astro.build/assets/rose.webp"
-  alt: "The Astro logo on a dark background with a pink glow."
-prepTime: 30
-cookTime: 20
+  alt: "Placeholder image goes here"
+prepTime: PT10M
+cookTime: PT20M
+totalTime: PT30M
 servings: 8
-ingredients: ["dog", "cat", "parrot", "owl"]
-instructions: [""]
+ingredients:
+  [
+    "2 C. gluten free flour blend",
+    "1 TBSP granulated sugar",
+    "1 TSP cinnamon",
+    "4 TSP baking powder",
+    "1/4 TSP salt",
+    "1/2 TSP vanilla extract",
+    "2 eggs, room temperature",
+    "1 3/4 C. milk",
+    "1/2 C. oil",
+  ]
+instructions: ["test"]
+# Recipe categories for blog
 tags: ["breakfast"]
 ---
 
