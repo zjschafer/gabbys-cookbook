@@ -1,9 +1,10 @@
 ---
 layout: ../../layouts/RecipeLayout.astro
 title: "Gluten Free Waffles"
-datePublished: 2025-11-07
+subtitle: "Made with fresh blueberries & warmed maple syrup"
 description: "Light, fluffy gluten free waffles topped with fresh blueberries, whipped cream, warmed maple syrup, and a side of mouthwatering hickory smoked bacon."
-author: "Gabrielle Lisella Schafer"
+datePublished: 2025-11-07
+author: "Gabby Lisella Schafer"
 image:
   url: "https://placehold.co/293x366"
   alt: "Placeholder image goes here"
@@ -34,6 +35,7 @@ instructions:
 recipeYield: 8
 recipeCategory: Breakfast
 recipeCuisine: American
+
 # Recipe categories for blog
 tags: ["breakfast"]
 ---

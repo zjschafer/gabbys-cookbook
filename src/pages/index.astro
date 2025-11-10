@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 import RecipeCard from '../components/RecipeCard.astro';
+
+const allRecipes = Object.values(import.meta.glob('./recipes/*.md', { eager: true }));
+
 ---
 
 <BaseLayout pageTitle="Gabby's Cookbook" pageDescription="Welcome to Gabby's Cookbook! Discover delicious gluten-free recipes.">
@@ -39,12 +42,12 @@ import RecipeCard from '../components/RecipeCard.astro';
                 </div>
               </div>
             </div>
-            <RecipeCard
+            <!-- <RecipeCard
               title="Gluten Free Waffles"
               subtitle="With fresh berries & maple syrup"
               image="https://placehold.co/293x366"
               slug="gluten-free-waffles"
-            />
+            /> -->
           </div>
         </div>
       </section>
@@ -61,14 +64,17 @@ import RecipeCard from '../components/RecipeCard.astro';
             <!-- recipe tags, filter by category will go here -->
           </div>
           <div class="recipe-cards">
-            <!-- pages/recipes/ will go here -->
-            <!-- <RecipeCard
-              title="Gluten Free Waffles"
-              subtitle="With fresh berries & maple syrup"
-              image="https://placehold.co/293x366"
-              slug="gluten-free-waffles"
-            /> -->
             
+            {allRecipes.map((recipe: any) => (
+              <RecipeCard
+                title={recipe.frontmatter.title}
+                subtitle={recipe.frontmatter.subtitle}
+                imageUrl={recipe.frontmatter.image.url}
+                imageAlt={recipe.frontmatter.image.alt}
+                slug={recipe.url}
+              />
+            ))}
+
           </div>
         </div>
       </section>
