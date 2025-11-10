@@ -1,24 +1,17 @@
 ---
-import '../styles/_normalize.css';
-import '../styles/global.css';
-
+import Navigation from '../components/Navigation.astro';  
+import Footer from '../components/Footer.astro';
 import Meta from '../components/Meta.astro';
 import RecipeJSONLD from '../components/RecipeJSONLD.astro';
 
-import Navigation from '../components/Navigation.astro';  
-import Footer from '../components/Footer.astro';
-
-// pulling in markdown frontmatter props
+// USE ONLY FOR MD LAYOUTS
 const { frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <title>{frontmatter.title}</title> -->
-    <Meta title={frontmatter.title} description={frontmatter.description} />
+    <Meta title={frontmatter.title} description={frontmatter.description} ogType='article' />
     <RecipeJSONLD
       name={frontmatter.title}
       description={frontmatter.description}

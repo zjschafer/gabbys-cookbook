@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-// const pageTitle = "Gabby's Cookbook";
+
 import RecipeCard from '../components/RecipeCard.astro';
 ---
 
-<BaseLayout pageTitle="Gabby's Cookbook">
+<BaseLayout pageTitle="Gabby's Cookbook" pageDescription="Welcome to Gabby's Cookbook! Discover delicious gluten-free recipes.">
   <section id="hero">
         <div class="wrapper">
           <div class="grid col two-one">
@@ -53,11 +53,15 @@ import RecipeCard from '../components/RecipeCard.astro';
       </section>
       <section id="recipes">
         <div class="wrapper">
-          <div id="filter">
+          <div id="search">
             <!-- algolia search will go here -->
+
+          </div>
+          <div id="filter">
+            <!-- recipe tags, filter by category will go here -->
           </div>
           <div class="recipe-cards">
-            
+            <!-- pages/recipes/ will go here -->
             <!-- <RecipeCard
               title="Gluten Free Waffles"
               subtitle="With fresh berries & maple syrup"

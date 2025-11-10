@@ -2,10 +2,10 @@
 layout: ../../layouts/RecipeLayout.astro
 title: "Gluten Free Waffles"
 datePublished: 2025-11-07
-description: "Topped with fresh blueberries, whipped cream, and a side of hickory smoked bacon."
+description: "Light, fluffy gluten free waffles topped with fresh blueberries, whipped cream, warmed maple syrup, and a side of mouthwatering hickory smoked bacon."
 author: "Gabrielle Lisella Schafer"
 image:
-  url: "https://docs.astro.build/assets/rose.webp"
+  url: "https://placehold.co/293x366"
   alt: "Placeholder image goes here"
 prepTime: 10
 cookTime: 20
@@ -37,7 +37,3 @@ recipeCuisine: American
 # Recipe categories for blog
 tags: ["breakfast"]
 ---
-
-# Gluten Free Waffles
-
-Light, fluffy gluten free waffles topped with fresh blueberries, whipped cream, and a side of mouthwatering hickory smoked bacon.

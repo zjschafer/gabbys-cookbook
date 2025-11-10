@@ -1,16 +1,11 @@
 ---
-
+ const currentYear = new Date().getFullYear();
 ---
 <footer>
-      <div class="wrapper">
-        <p>
-          &copy;&nbsp;2025-<span id="current-year"></span> Gabby's Cookbook. All
-          rights reserved.
-        </p>
-      </div>
-      <script>
-      // Set the current year in the footer
-      document.querySelector("#current-year").textContent =
-        new Date().getFullYear();
-    </script>
-    </footer>
+  <div class="wrapper">
+    <p>
+      &copy;&nbsp;2025-{currentYear} Gabby's Cookbook. All
+      rights reserved.
+    </p>
+  </div>
+</footer>
