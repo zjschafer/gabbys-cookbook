@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+
+export async function getStaticPaths() {
+  /* REPEATS, CAN WE IMPORT ONCE GLOBALLY? */
+/* What does Eager mean? */
+const allRecipes = Object.values(import.meta.glob('../recipes/*.md', { eager: true }));
+  return [
+    { params: { tag: "breakfast" }, props: {recipes: allRecipes }},
+    { params: { tag: "lunch" }, props: {recipes: allRecipes }},
+    { params: { tag: "entree" }, props: {recipes: allRecipes }},
+    { params: { tag: "sauce-dip" }, props: {recipes: allRecipes }},
+    { params: { tag: "dessert" }, props: {recipes: allRecipes }},
+    { params: { tag: "soup-salad" }, props: {recipes: allRecipes }},
+    { params: { tag: "sandwich" }, props: {recipes: allRecipes }},
+  ];
+}
+
+const { tag } = Astro.params;
+const { recipes } = Astro.props;
+const filteredRecipes = recipes.filter((recipe: any) => recipe.frontmatter.tags?.includes(tag));
+---
+<BaseLayout pageTitle={tag} pageDescription={`Posts tagged with ${tag}`}>
+    <div class="wrapper">
+        <p>Posts tagged with {tag}</p>
+    </div>
+    <!-- MAKE COMPONENT OUT OF THIS FOR INDEX PAGE TOO -->
+    <section id="recipes">
+        <div class="wrapper">
+          <div id="search">
+            <!-- algolia search will go here -->
+
+          </div>
+          <div id="filter">
+            <!-- recipe tags, filter by category will go here -->
+          </div>
+          <div class="recipe-cards">
+            
+            {filteredRecipes.map((recipe: any) => (
+              <RecipeCard
+                title={recipe.frontmatter.title}
+                subtitle={recipe.frontmatter.subtitle}
+                imageUrl={recipe.frontmatter.image.url}
+                imageAlt={recipe.frontmatter.image.alt}
+                slug={recipe.url}
+              />
+            ))}
+
+          </div>
+        </div>
+      </section>
+</BaseLayout>

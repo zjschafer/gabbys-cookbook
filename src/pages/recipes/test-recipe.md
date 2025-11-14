@@ -30,5 +30,5 @@ recipeCategory: Dinner
 recipeCuisine: Japanese
 
 # Recipe categories for blog
-tags: ["dinner"]
+tags: ["entree"]
 ---
