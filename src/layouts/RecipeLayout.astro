@@ -50,13 +50,34 @@ const { frontmatter } = Astro.props;
             <p>
               {frontmatter.description}
             </p>
-            <div>
-              <span class="prep-time"
-                >Prep Time: {frontmatter.prepTime}</span
-              >
-              <span class="cook-time">Cook/Bake Time: {frontmatter.cookTime}</span>
-              <span class="total-time">Total Time: {frontmatter.totalTime}</span>
-              <span class="servings">Servings: {frontmatter.recipeYield} </span>
+            <div class="tabs grid col one-one">
+              
+              <div>
+                <span class="prep-time"
+                  ><img src="/assets/images/icons/whisk.svg" alt="Prep Time" />Prep Time:</span
+                >
+                <span class="var">{frontmatter.prepTime}&nbsp;<span class="unit">min.</span></span>
+              </div>
+              <div>
+                <span class="cook-time"
+                  ><img src="/assets/images/icons/flame.svg" alt="Cook Time" />Cook/Bake
+                  Time:</span
+                >
+                <span class="var">{frontmatter.cookTime}&nbsp;<span class="unit">min.</span></span>
+              </div>
+              <div>
+                <span class="total-time"
+                  ><img src="/assets/images/icons/clock.svg" alt="Total Time" />Total
+                  Time:</span
+                >
+                <span class="var">{frontmatter.totalTime}&nbsp;<span class="unit">min.</span></span>
+              </div>
+              <div>
+                <span class="servings"
+                  ><img src="/assets/images/icons/chef-hat.svg" alt="Servings" />Servings:</span
+                >
+                <span class="var">{frontmatter.recipeYield}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -103,7 +103,7 @@ a.btn.full {
   grid-template-columns: 1fr 1fr;
 }
 @media (max-width: 768px) {
-  .col.one-one {
+  .col.one-one:not(.tabs) {
     grid-template-columns: 1fr;
   }
 }
@@ -298,4 +298,28 @@ ol.recipe-instructions li:nth-child(n + 10)::before {
 ol.recipe-instructions li:nth-child(n + 10)::before {
   top: -6px;
   left: -36px;
+}
+
+span.prep-time,
+span.cook-time,
+span.total-time,
+span.servings {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+span.var {
+  display: block;
+  font-family: var(--font-secondary);
+  font-size: 32px;
+}
+
+span.unit {
+  font-family: var(--font-secondary);
+  font-size: 24px;
+  font-weight: 400;
 }
