@@ -7,33 +7,25 @@ export async function getStaticPaths() {
 /* What does Eager mean? */
 const allRecipes = Object.values(import.meta.glob('../recipes/*.md', { eager: true }));
 
-const uniqueTags = [...new Set(allRecipes.map((post: any) => post.frontmatter.tags).flat())];
-  // return [
-  //   { params: { tag: "breakfast" }, props: {recipes: allRecipes }},
-  //   { params: { tag: "lunch" }, props: {recipes: allRecipes }},
-  //   { params: { tag: "entree" }, props: {recipes: allRecipes }},
-  //   { params: { tag: "sauce-dip" }, props: {recipes: allRecipes }},
-  //   { params: { tag: "dessert" }, props: {recipes: allRecipes }},
-  //   { params: { tag: "soup-salad" }, props: {recipes: allRecipes }},
-  //   { params: { tag: "sandwich" }, props: {recipes: allRecipes }},
-  // ];
-  return uniqueTags.map((tag) => {
-    const filteredRecipes = allRecipes.filter((post: any) => post.frontmatter.tags.includes(tag));
+const allCategories = [...new Set(allRecipes.map((recipe: any) => recipe.frontmatter.categories).flat())];
+  
+  return allCategories.map((category) => {
+    const filteredRecipes = allRecipes.filter((recipe: any) => recipe.frontmatter.categories.includes(category));
     return {
-      params: { tag },
+      params: { category },
       props: { recipes: filteredRecipes },
     };
   });
 
 }
 
-const { tag } = Astro.params;
+const { category } = Astro.params;
 const { recipes } = Astro.props;
 // const filteredRecipes = recipes.filter((recipe: any) => recipe.frontmatter.tags?.includes(tag));
 ---
-<BaseLayout pageTitle={tag} pageDescription={`Posts tagged with ${tag}`}>
+<BaseLayout pageTitle={category} pageDescription={`Posts tagged with ${category}`}>
     <div class="wrapper">
-        <p>Posts tagged with {tag}</p>
+        <p>Posts tagged with {category}</p>
     </div>
     <!-- MAKE COMPONENT OUT OF THIS FOR INDEX PAGE TOO -->
     <section id="recipes">

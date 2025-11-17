@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 import RecipeCard from '../components/RecipeCard.astro';
 
-/* REPEATS FROM TAGS PAGE - MAKE COMPONENT LATER */
+/* REPEATS FROM CATEGORIES PAGE - MAKE COMPONENT LATER */
 const allRecipes = Object.values(import.meta.glob('./recipes/*.md', { eager: true }));
 
 ---
@@ -64,11 +64,11 @@ const allRecipes = Object.values(import.meta.glob('./recipes/*.md', { eager: tru
 
           </div>
           <div id="filter">
-            <!-- recipe tags, filter by category will go here -->
-            <div class="tags">
+            <!-- recipe categories, filter by category will go here -->
+            <div class="categories">
               {allRecipes.map((recipe: any) => (
-                recipe.frontmatter.tags.map((tag: string) => (
-                  <a href={`/tags/${tag}`} class="tag">{tag}</a>
+                recipe.frontmatter.categories.map((category: string) => (
+                  <a href={`/categories/${category}`} class="category">{category}</a>
                 ))
               ))}
             </div>
@@ -89,22 +89,3 @@ const allRecipes = Object.values(import.meta.glob('./recipes/*.md', { eager: tru
         </div>
       </section>
 </BaseLayout>
-<style>
-  .tags a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

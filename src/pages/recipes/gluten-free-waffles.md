@@ -37,5 +37,5 @@ recipeCategory: Breakfast
 recipeCuisine: American
 
 # Recipe categories for blog
-tags: ["breakfast"]
+categories: ["breakfast"]
 ---

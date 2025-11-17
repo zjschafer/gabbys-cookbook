@@ -2,16 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const allRecipes = Object.values(import.meta.glob('../recipes/*.md', { eager: true }));
 
-const tags = [...new Set(allRecipes.map((post: any) => post.frontmatter.tags).flat())];
+const categories = [...new Set(allRecipes.map((post: any) => post.frontmatter.categories).flat())];
 
 ---
 
-<BaseLayout pageTitle="Tags" pageDescription="Browse all tags">
+<BaseLayout pageTitle="Categories" pageDescription="Browse all categories">
     <div class="wrapper">
-        <h1>Tags</h1>
-        <div class="tags">
-            {tags.map((tag) => (
-            <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+        <h1>Categories</h1>
+        <div class="categories">
+            {categories.map((category) => (
+            <p class="category"><a href={`/categories/${category}`}>{category}</a></p>
             ))}
         </div>
     </div>
