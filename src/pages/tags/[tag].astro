@@ -6,20 +6,30 @@ export async function getStaticPaths() {
   /* REPEATS, CAN WE IMPORT ONCE GLOBALLY? */
 /* What does Eager mean? */
 const allRecipes = Object.values(import.meta.glob('../recipes/*.md', { eager: true }));
-  return [
-    { params: { tag: "breakfast" }, props: {recipes: allRecipes }},
-    { params: { tag: "lunch" }, props: {recipes: allRecipes }},
-    { params: { tag: "entree" }, props: {recipes: allRecipes }},
-    { params: { tag: "sauce-dip" }, props: {recipes: allRecipes }},
-    { params: { tag: "dessert" }, props: {recipes: allRecipes }},
-    { params: { tag: "soup-salad" }, props: {recipes: allRecipes }},
-    { params: { tag: "sandwich" }, props: {recipes: allRecipes }},
-  ];
+
+const uniqueTags = [...new Set(allRecipes.map((post: any) => post.frontmatter.tags).flat())];
+  // return [
+  //   { params: { tag: "breakfast" }, props: {recipes: allRecipes }},
+  //   { params: { tag: "lunch" }, props: {recipes: allRecipes }},
+  //   { params: { tag: "entree" }, props: {recipes: allRecipes }},
+  //   { params: { tag: "sauce-dip" }, props: {recipes: allRecipes }},
+  //   { params: { tag: "dessert" }, props: {recipes: allRecipes }},
+  //   { params: { tag: "soup-salad" }, props: {recipes: allRecipes }},
+  //   { params: { tag: "sandwich" }, props: {recipes: allRecipes }},
+  // ];
+  return uniqueTags.map((tag) => {
+    const filteredRecipes = allRecipes.filter((post: any) => post.frontmatter.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { recipes: filteredRecipes },
+    };
+  });
+
 }
 
 const { tag } = Astro.params;
 const { recipes } = Astro.props;
-const filteredRecipes = recipes.filter((recipe: any) => recipe.frontmatter.tags?.includes(tag));
+// const filteredRecipes = recipes.filter((recipe: any) => recipe.frontmatter.tags?.includes(tag));
 ---
 <BaseLayout pageTitle={tag} pageDescription={`Posts tagged with ${tag}`}>
     <div class="wrapper">
@@ -37,7 +47,7 @@ const filteredRecipes = recipes.filter((recipe: any) => recipe.frontmatter.tags?
           </div>
           <div class="recipe-cards">
             
-            {filteredRecipes.map((recipe: any) => (
+            {recipes.map((recipe: any) => (
               <RecipeCard
                 title={recipe.frontmatter.title}
                 subtitle={recipe.frontmatter.subtitle}
