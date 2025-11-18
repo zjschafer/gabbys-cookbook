@@ -1,55 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import RecipeCard from '../../components/RecipeCard.astro';
 
+import RecipeSection from '../../components/RecipeSection.astro';
+
+// Generate static paths for each category
 export async function getStaticPaths() {
-  /* REPEATS, CAN WE IMPORT ONCE GLOBALLY? */
-/* What does Eager mean? */
+ 
 const allRecipes = Object.values(import.meta.glob('../recipes/*.md', { eager: true }));
-
-const allCategories = [...new Set(allRecipes.map((recipe: any) => recipe.frontmatter.categories).flat())];
+const allCategories = [...new Set(allRecipes.map((category: any) => category.frontmatter.categories).flat())];
   
   return allCategories.map((category) => {
-    const filteredRecipes = allRecipes.filter((recipe: any) => recipe.frontmatter.categories.includes(category));
+    // const filteredRecipes = allRecipes.filter((recipe: any) => recipe.frontmatter.categories.includes(category)); placed in RecipeSection.astro
     return {
       params: { category },
-      props: { recipes: filteredRecipes },
+      // props: { recipes: filteredRecipes }, placed in RecipeSection.astro
     };
   });
-
 }
 
 const { category } = Astro.params;
-const { recipes } = Astro.props;
-// const filteredRecipes = recipes.filter((recipe: any) => recipe.frontmatter.tags?.includes(tag));
+
 ---
 <BaseLayout pageTitle={category} pageDescription={`Posts tagged with ${category}`}>
     <div class="wrapper">
         <p>Posts tagged with {category}</p>
     </div>
-    <!-- MAKE COMPONENT OUT OF THIS FOR INDEX PAGE TOO -->
-    <section id="recipes">
-        <div class="wrapper">
-          <div id="search">
-            <!-- algolia search will go here -->
-
-          </div>
-          <div id="filter">
-            <!-- recipe tags, filter by category will go here -->
-          </div>
-          <div class="recipe-cards">
-            
-            {recipes.map((recipe: any) => (
-              <RecipeCard
-                title={recipe.frontmatter.title}
-                subtitle={recipe.frontmatter.subtitle}
-                imageUrl={recipe.frontmatter.image.url}
-                imageAlt={recipe.frontmatter.image.alt}
-                slug={recipe.url}
-              />
-            ))}
-
-          </div>
-        </div>
-      </section>
+    <RecipeSection recipeList="filtered" />
 </BaseLayout>

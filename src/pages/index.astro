@@ -1,91 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import RecipeCard from '../components/RecipeCard.astro';
-
-/* REPEATS FROM CATEGORIES PAGE - MAKE COMPONENT LATER */
-const allRecipes = Object.values(import.meta.glob('./recipes/*.md', { eager: true }));
+import HeroSection from '../components/HeroSection.astro';
+import RecipeSection from '../components/RecipeSection.astro';
 
 ---
 
 <BaseLayout pageTitle="Gabby's Cookbook" pageDescription="Welcome to Gabby's Cookbook! Discover delicious gluten-free recipes.">
-  <section id="hero">
-        <div class="wrapper">
-          <div class="grid col two-one">
-            <div class="intro">
-              <p><span class="subtitle">Welcome to Gabby's Cookbook!</span></p>
-              <h1>
-                Delicious, gluten free, home-cooked meals for the Celiac in the
-                family.
-              </h1>
-              <p class="lead">
-                Often a struggle for those new to the change in their diet, or
-                for those that just don’t get it, we have made it simple—No ads,
-                no gluten. Gabby’s Cookbook is a growing collection of her
-                favorite, best tasting gluten free recipes.
-                <a href="/about" class="buzz">About</a>
-              </p>
-              <a href="#recipes" class="btn">Explore Gluten Free</a>
-              <!-- patreon callout -->
-              <div id="patreon" class="grid col min-one">
-                <div>
-                  <img
-                    src="assets/images/icons/patreon.svg"
-                    alt="Support us on Patreon"
-                  />
-                </div>
-                <div>
-                  <p>
-                    Enjoying the site? Please consider supporting Gabby’s
-                    Cookbook on Patreon for just $2 a month.<br/>
-                    <a href="https://www.patreon.com/gabbyscookbook" class="buzz">Show my support</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- featured recipe - just static for now -->
-            <RecipeCard
-              title="Gluten Free Waffles"
-              subtitle="With fresh berries & maple syrup"
-              imageUrl="https://placehold.co/293x366"
-              imageAlt="A stack of gluten free waffles topped with berries" 
-              slug="recipes/gluten-free-waffles"
-            />
-          </div>
-        </div>
-      </section>
-          </div>
-        </div>
-      </section>
-      <section id="recipes">
-        <div class="wrapper">
-          <div id="search">
-            <!-- algolia search will go here -->
+  
+      <HeroSection />
+      
+      <RecipeSection recipeList="all" />
 
-          </div>
-          <div id="filter">
-            <!-- recipe categories, filter by category will go here -->
-            <div class="categories">
-              {allRecipes.map((recipe: any) => (
-                recipe.frontmatter.categories.map((category: string) => (
-                  <a href={`/categories/${category}`} class="category">{category}</a>
-                ))
-              ))}
-            </div>
-          </div>
-          <div class="recipe-cards">
-            
-            {allRecipes.map((recipe: any) => (
-              <RecipeCard
-                title={recipe.frontmatter.title}
-                subtitle={recipe.frontmatter.subtitle}
-                imageUrl={recipe.frontmatter.image.url}
-                imageAlt={recipe.frontmatter.image.alt}
-                slug={recipe.url}
-              />
-            ))}
-
-          </div>
-        </div>
-      </section>
 </BaseLayout>

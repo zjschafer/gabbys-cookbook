@@ -1,0 +1,60 @@
+---
+import RecipeCard from './RecipeCard.astro';
+import Search from '../components/Search.astro';
+import Filter from '../components/Filter.astro';
+
+// Gather ALL recipes from MD files
+const allRecipes = Object.values(import.meta.glob('../pages/recipes/*.md', { eager: true }));
+
+// Conditional props
+// 'all' to show all recipes
+// 'filtered' to show filtered recipes based on category from params
+export interface Props {
+  recipeList: 'all' | 'filtered';
+}
+
+const { recipeList } = Astro.props;
+
+// Get filtered recipes if needed
+const category = Astro.params.category;
+const filteredRecipes = category 
+  ? allRecipes.filter((recipe: any) => recipe.frontmatter.categories.includes(category))
+  : [];
+
+---
+<section id="recipes">
+    <div class="wrapper">
+
+        <Search />
+        <Filter />
+
+        <!-- Conditional Rendering of Recipe Cards based on recipeList prop -->
+        {recipeList === 'all' && (
+        <div class="recipe-cards">
+        {allRecipes.map((recipe: any) => (
+            <RecipeCard
+            title={recipe.frontmatter.title}
+            subtitle={recipe.frontmatter.subtitle}
+            imageUrl={recipe.frontmatter.image.url}
+            imageAlt={recipe.frontmatter.image.alt}
+            slug={recipe.url}
+            />
+        ))}
+        </div>
+        )}
+        {recipeList === 'filtered' && (
+        <div class="recipe-cards">
+        {filteredRecipes.map((recipe: any) => (
+            <RecipeCard
+            title={recipe.frontmatter.title}
+            subtitle={recipe.frontmatter.subtitle}
+            imageUrl={recipe.frontmatter.image.url}
+            imageAlt={recipe.frontmatter.image.alt}
+            slug={recipe.url}
+            />
+        ))}
+
+        </div>)}
+
+    </div>
+</section>
