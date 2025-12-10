@@ -1,11 +1,48 @@
 ---
  const currentYear = new Date().getFullYear();
+ import Social from './Social.astro';
 ---
 <footer>
   <div class="wrapper">
-    <p>
-      &copy;&nbsp;2025-{currentYear} Gabby's Cookbook. All
-      rights reserved.
-    </p>
+    <div class="footer-grid">
+      <div class="footer-left">
+        <p class="copyright">
+          <b>Gabby's Cookbook</b>&copy;&nbsp;2025-{currentYear}
+        </p>
+      </div>
+      <div class="footer-right">
+        <p class="dedication">
+          <img src="/assets/images/icons/heart-foot.svg" alt="Penguin"/> Designed & Developed for you, Penguin
+        </p>
+        <div class="social nav-links">
+          <Social platform="instagram" username="gabbyscookbook" icon="instagram" />
+          <Social platform="pinterest" username="gabbyscookbook" icon="pinterest" />
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
+
+<style>
+  footer .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .copyright{
+    font-family: var(--font-tertiary);
+  }
+
+
+
+</style>
