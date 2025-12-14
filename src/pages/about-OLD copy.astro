@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const identity = {
+  firstName: "Gabby",
+  lastName: "Lisella-Schafer",
+  country: "USA",
+  occupation: "Event Planner",
+  hobbies: ["drawing", "cooking", "running", "reading"],
+};
+
+const skills = ["Gluten Free Cooking", "Recipe Development", "Food Photography", "Blogging"];
+---
+
+<BaseLayout pageTitle="About Gabby's Cookbook" pageDescription="Learn more about Gabby, the creator of Gabby's Cookbook, and her passion for gluten-free cooking.">
+  <div class="wrapper">
+    <h1>
+      Delicious, gluten free, home-cooked meals for the Celiac in the
+      family.
+    </h1>
+
+    <p>Here are a few facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}.</li>
+      <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+      {identity.hobbies.length >= 2 &&
+        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+      }
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+  </div>
+</BaseLayout>
