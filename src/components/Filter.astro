@@ -3,11 +3,10 @@ const allRecipes = Object.values(import.meta.glob('../pages/recipes/*.md', { eag
 ---
 
 <div id="filter">
-    <h2>Browse Recipes by Category</h2>
     <div class="categories">
         {allRecipes.map((recipe: any) => (
         recipe.frontmatter.categories.map((category: string) => (
-            <a href={`/categories/${category}`} class="category">{category}</a>
+            <a href={`/recipes/${category}`} class="category">{category}</a>
         ))
         ))}
     </div>

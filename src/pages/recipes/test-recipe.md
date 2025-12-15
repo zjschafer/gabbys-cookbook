@@ -31,4 +31,5 @@ recipeCuisine: Japanese
 
 # Recipe categories for blog
 categories: ["entree"]
+flavorProfiles: ["salty"]
 ---

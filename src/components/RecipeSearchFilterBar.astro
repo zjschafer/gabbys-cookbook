@@ -1,0 +1,43 @@
+---
+import Filter from './Filter.astro';
+// import Search from './Search.astro';
+---
+
+
+<div id="recipe-search">
+    <!-- <div class="wrapper">
+        <div class="bar-top">
+            <img class="saved-recipes" src="/assets/images/icons/heart-saved.svg" alt="saved recipes">
+            <Search />
+        </div>
+        <Filter />
+    </div> -->
+    <div class="wrapper">
+        <div class="bar-top">
+            <img class="saved-recipes" src="/assets/images/icons/heart-saved.svg" alt="saved recipes">
+            <Filter />
+        </div>
+    </div>
+</div>
+
+<style>
+    .wrapper {
+        background: var(--color-pastry-pink);
+        border-radius: 12px;
+    }
+    .bar-top {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        gap: 16px;
+        align-items: center;
+    }
+
+    img.saved-recipes {
+        /* width: 32px;
+        height: 32px; */
+    }
+
+    #recipe-search .wrapper {
+        padding: 28px;
+    }
+</style>

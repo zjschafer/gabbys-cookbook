@@ -38,4 +38,5 @@ recipeCuisine: American
 
 # Recipe categories for blog
 categories: ["breakfast"]
+flavorProfiles: ["sweet", "savory"]
 ---

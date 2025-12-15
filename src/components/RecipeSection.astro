@@ -1,7 +1,5 @@
 ---
 import RecipeCard from './RecipeCard.astro';
-import Search from '../components/Search.astro';
-import Filter from '../components/Filter.astro';
 
 // Gather ALL recipes from MD files
 const allRecipes = Object.values(import.meta.glob('../pages/recipes/*.md', { eager: true }));
@@ -24,17 +22,13 @@ const filteredRecipes = category
 ---
 <section id="recipes">
     <div class="wrapper">
-
-        <Search />
-        <Filter />
-
         <!-- Conditional Rendering of Recipe Cards based on recipeList prop -->
         {recipeList === 'all' && (
         <div class="recipe-cards">
         {allRecipes.map((recipe: any) => (
             <RecipeCard
             title={recipe.frontmatter.title}
-            subtitle={recipe.frontmatter.subtitle}
+            subtitle={recipe.frontmatter.flavorProfiles}
             imageUrl={recipe.frontmatter.image.url}
             imageAlt={recipe.frontmatter.image.alt}
             slug={recipe.url}
@@ -47,14 +41,12 @@ const filteredRecipes = category
         {filteredRecipes.map((recipe: any) => (
             <RecipeCard
             title={recipe.frontmatter.title}
-            subtitle={recipe.frontmatter.subtitle}
+            subtitle={recipe.frontmatter.flavorProfiles}
             imageUrl={recipe.frontmatter.image.url}
             imageAlt={recipe.frontmatter.image.alt}
             slug={recipe.url}
             />
         ))}
-
         </div>)}
-
     </div>
 </section>

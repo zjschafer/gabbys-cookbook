@@ -3,13 +3,31 @@ const { title, subtitle, imageUrl, imageAlt, slug } = Astro.props;
 ---
 
 <article class="recipe-card">
-    <div class="recipe-card-outer">
-        <img src={imageUrl} class="recipe" alt={`${imageAlt}`} />
-        <div class="recipe-card-inner">
-            <h1>{title}</h1>
-            <hr class="line" />
-            <h2>{subtitle}</h2>
-            <a href={slug} class="btn full">Let’s Make it</a>
+    <a href={slug} class="recipe-card-link">
+        <div class="recipe-card-outer">
+            <img src={imageUrl} class="recipe" alt={`${imageAlt}`} />
+            <div class="recipe-card-inner">
+                <span class="subtitle">{subtitle}</span>
+                <h1>{title}</h1>
+            </div>
         </div>
-    </div>
+    </a>
 </article>
+
+<style>
+    .recipe-card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .recipe-card-outer {
+        border: 1px solid var(--color-pen-ink);
+    }
+
+    .recipe-card-inner .subtitle {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+
+</style>

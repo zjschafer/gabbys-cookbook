@@ -7,14 +7,14 @@
     <div class="footer-grid">
       <div class="footer-left">
         <p class="copyright">
-          <b>Gabby's Cookbook</b>&copy;&nbsp;2025-{currentYear}
+          <b><a href="/">Gabby's Cookbook</a></b>&nbsp;&copy;&nbsp;Copyright&nbsp;2025-{currentYear}
         </p>
       </div>
       <div class="footer-right">
         <p class="dedication">
-          <img src="/assets/images/icons/heart-foot.svg" alt="Penguin"/> Designed & Developed for you, Penguin
+          <img src="/assets/images/icons/heart-foot.svg" alt="Penguin"/> Designed & Developed for you, Penguin.
         </p>
-        <div class="social nav-links">
+        <div class="social-links">
           <Social platform="instagram" username="gabbyscookbook" icon="instagram" />
           <Social platform="pinterest" username="gabbyscookbook" icon="pinterest" />
         </div>
@@ -40,9 +40,20 @@
   }
 
   .copyright{
-    font-family: var(--font-tertiary);
+    font-family: var(--font-primary);
   }
 
+  .copyright a {
+    text-decoration: none;
+    color: var(--color-pen-ink);
+  }
+
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
 
 </style>

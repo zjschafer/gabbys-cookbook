@@ -1,48 +1,36 @@
 ---
-import RecipeCard from './RecipeCard.astro';
+import RecipeSearchFilterBar from './RecipeSearchFilterBar.astro'
+
+const { title, subtitle, text, image } = Astro.props;
 ---
-<section id="hero">
+<section id="hero" style={`background-image: url(${image});`}>
     <div class="wrapper">
-        <div class="grid">
-        <div class="intro">
-            <p><span class="subtitle">Welcome to Gabby's Cookbook!</span></p>
+        <div class="wrapper inner">
+            <p class="subtitle">{subtitle || 'Gluten Free recipes'}</p>
             <h1>
-            Delicious, gluten free, home-cooked meals for the Celiac in the
-            family.
+            {title || 'Gluten free food that just tastes better.'}
             </h1>
             <p class="lead">
-            Often a struggle for those new to the change in their diet, or
-            for those that just don’t get it, we have made it simple—No ads,
-            no gluten. Gabby’s Cookbook is a growing collection of her
-            favorite, best tasting gluten free recipes.
-            
+            {text || 'Guided by a simple philosophy—No gluten & no ads.'}
             </p>
-            <a href="#recipes" class="btn">Explore Gluten Free</a>
-            <!-- patreon callout -->
-            <div id="patreon" class="grid col min-one">
-            <div>
-                <img
-                src="assets/images/icons/patreon.svg"
-                alt="Support us on Patreon"
-                />
-            </div>
-            <div>
-                <p>
-                Enjoying the site? Please consider supporting Gabby’s
-                Cookbook on Patreon for just $2 a month.<br/>
-                <a href="https://www.patreon.com/gabbyscookbook" class="buzz">Show my support</a>
-                </p>
-            </div>
-            </div>
         </div>
-        <!-- featured recipe - just static for now -->
-        <RecipeCard
-            title="Gluten Free Waffles"
-            subtitle="With fresh berries & maple syrup"
-            imageUrl="https://placehold.co/293x366"
-            imageAlt="A stack of gluten free waffles topped with berries" 
-            slug="recipes/gluten-free-waffles"
-        />
-        </div>
+        <RecipeSearchFilterBar />
     </div>
 </section>
+
+<style>
+    #hero {
+        /* background: url('/assets/images/hero.jpg') no-repeat center center fixed; */
+        background: no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        padding: 40px 0;
+    }
+
+    #hero .wrapper.inner {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+</style>
