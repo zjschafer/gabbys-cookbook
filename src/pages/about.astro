@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Social from '../components/Social.astro';
 
+
 ---
 
 <BaseLayout pageTitle="About Gabby's Cookbook" pageDescription="Learn more about Gabby, the creator of Gabby's Cookbook, and her passion for gluten-free cooking.">
@@ -9,7 +10,11 @@ import Social from '../components/Social.astro';
     
     <!-- gabby -->
     <article class="profile">
-      <div class="left">
+      <div class="left" style="content: '';
+    background-image: url('/assets/images/about-gabby-bg.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;">
         <img src="/assets/images/about-gabby.png" alt="Gabby Lisella" class="about-image" />
         <div class="social-links">
         <Social platform="instagram" username="gabbylisella" icon="instagram" /></div>
@@ -22,6 +27,25 @@ import Social from '../components/Social.astro';
         <p>Gluten free restaurants near me? Very few and far between that I know of offer gluten free substitutes (often with an up charge). Grocery shopping? Challenging on a budget!—More importantly, some gluten-free food, no matter where it comes from or how expensive it (unfortunately) can be, just doesn't taste good.</p>
         <p>I discovered that I can do better for health, in my own kitchen, under my own rules. And, thats my mission here.</p>
         <p>Gabby's Cookbook is a growing collection of my favorite, best tasting gluten free recipes—each one, tried and true. Gabby's Cookbook is a safe haven of home cooked meals that you or someone you know with Celiacs (or, not) that can rely on, because even “gluten eaters”, like my Zachary cannot taste the difference!</p>
+      </div>
+    </article>
+
+    <!-- zachary -->
+    <article class="profile">
+      <div class="left" style="content: '';
+    background-image: url('/assets/images/about-zach-bg.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;">
+        <img src="/assets/images/about-zach.png" alt="Zachary Schafer" class="about-image" />
+        <div class="social-links">
+        <Social platform="instagram" username="zjschafer" icon="instagram" /></div>
+      </div>
+      <div class="right">
+        <span class="subtitle">Meet the Taste-tester</span>
+        <h1>Hey! My name is Zach. I am Gabby's husband & personal taste-tester. </h1>
+        <hr class="accent" />
+        <p>I have designed and developed this site for Gabby. I am exploring the art of food photography and maintaining the website. I let Gabby handle the most important parts — Baking, cooking, marketing, copywriting, and being the most beautiful face of her brand. We're a team. I adore her so much, because she really does put her heart and soul into every dish that she makes. I would know; it's why I have a little bit of a belly now!</p>
       </div>
     </article>
 
@@ -50,11 +74,11 @@ import Social from '../components/Social.astro';
   }
 
   .left {
-    content: '';
+    /* content: '';
     background-image: url('/assets/images/about-gabby-bg.png');
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
   }
 
   .social-links {
