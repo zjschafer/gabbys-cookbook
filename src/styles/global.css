@@ -187,11 +187,14 @@ a.btn.full {
 
 /* can be p or span */
 .subtitle {
+  display: block;
   font-family: var(--font-tertiary);
   font-size: 16px;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--color-raspberry);
+  margin-bottom: 20px;
 }
 
 p.lead {
@@ -347,4 +350,11 @@ span.unit {
   padding: 8px 20px;
   cursor: pointer;
   background-color: white;
+}
+
+hr.accent {
+  border: none;
+  border-top: 1px solid var(--color-pen-ink);
+  margin: 24px 0;
+  width: 42px;
 }
