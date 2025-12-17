@@ -12,8 +12,8 @@ const structuredData = {
   },
   "datePublished": Astro.props.datePublished,
   "description": Astro.props.description,
+  "suitableForDiet": "https://schema.org/GlutenFreeDiet",
   "recipeIngredient": Astro.props.ingredients,
-  
   "recipeInstructions": Astro.props.recipeInstructions.map((instruction: string, index: number) => ({
     "@type": "HowToStep",
     "name": `Step ${index + 1}`,

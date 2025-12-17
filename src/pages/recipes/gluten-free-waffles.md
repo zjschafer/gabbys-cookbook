@@ -40,3 +40,7 @@ recipeCuisine: American
 categories: ["breakfast"]
 flavorProfiles: ["sweet", "savory"]
 ---
+
+## Gabby's Notes:
+
+Made with raw oyster mushrooms and pickled radishes, this soba noodle salad is a refreshing and healthy dish that combines the nutty flavor of soba noodles with the earthy taste of raw oyster mushrooms. The tangy crunch of pickled radishes sends it over the edge.

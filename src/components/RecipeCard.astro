@@ -1,5 +1,6 @@
 ---
 const { title, subtitle, imageUrl, imageAlt, slug } = Astro.props;
+
 ---
 
 <article class="recipe-card">
@@ -7,7 +8,14 @@ const { title, subtitle, imageUrl, imageAlt, slug } = Astro.props;
         <div class="recipe-card-outer">
             <img src={imageUrl} class="recipe" alt={`${imageAlt}`} />
             <div class="recipe-card-inner">
-                <span class="subtitle">{subtitle}</span>
+                <!-- use this on the recipe cardss -->
+              {subtitle.length > 0 && (
+                <span class="subtitle">
+                  {subtitle.length > 2 
+                    ? subtitle.slice(0, -2).join(', ') + ', ' + subtitle.slice(-2).join(' & ') 
+                    : subtitle.join(' & ')}
+                </span>)
+              }
                 <h1>{title}</h1>
             </div>
         </div>

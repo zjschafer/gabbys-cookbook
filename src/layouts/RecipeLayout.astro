@@ -6,6 +6,10 @@ import RecipeJSONLD from '../components/RecipeJSONLD.astro';
 
 // USE ONLY FOR MD LAYOUTS
 const { frontmatter } = Astro.props;
+
+const formattedPublishedDate = new Date(frontmatter.datePublished)
+const formattedUpdatedDate = new Date(frontmatter.dateUpdated);
+
 ---
 
 <!DOCTYPE html>
@@ -44,56 +48,79 @@ const { frontmatter } = Astro.props;
             />
           </div>
           <div>
+            
+            <!-- use this on the recipe cardss -->
+            {frontmatter.flavorProfiles.length > 0 && (
+              <span class="subtitle">
+                {frontmatter.flavorProfiles.length > 2 
+                  ? frontmatter.flavorProfiles.slice(0, -2).join(', ') + ', ' + frontmatter.flavorProfiles.slice(-2).join(' & ') 
+                  : frontmatter.flavorProfiles.join(' & ')}
+              </span>)
+            }
+             
             <h1>
               {frontmatter.title}
             </h1>
-            <p>
+            
+            <!-- do this later - Recipe by <a href={frontmatter.author.url}>{frontmatter.author.name}</a>
+             
+            Need to add the text "Updated on "-->
+            <p class="recipe-credentials">Recipe by {frontmatter.author}&nbsp;<i>Published on {frontmatter.dateUpdated  ? formattedUpdatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : formattedPublishedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</i></p>
+            <div class="categories">
+               {frontmatter.categories.map((category: string) => (
+                <a href={`/recipes/${category}`} class="category pink">{category}</a>
+              ))}
+            </div>
+            <hr class="accent"/>
+            <p class="recipe-description">
               {frontmatter.description}
             </p>
-            <div class="tabs grid col one-one">
-              
-              <div>
-                <span class="prep-time"
-                  ><img src="/assets/images/icons/whisk.svg" alt="Prep Time" />Prep Time:</span
-                >
-                <span class="var">{frontmatter.prepTime}&nbsp;<span class="unit">min.</span></span>
-              </div>
-              <div>
-                <span class="cook-time"
-                  ><img src="/assets/images/icons/flame.svg" alt="Cook Time" />Cook/Bake
-                  Time:</span
-                >
-                <span class="var">{frontmatter.cookTime}&nbsp;<span class="unit">min.</span></span>
-              </div>
-              <div>
-                <span class="total-time"
-                  ><img src="/assets/images/icons/clock.svg" alt="Total Time" />Total
-                  Time:</span
-                >
-                <span class="var">{frontmatter.totalTime}&nbsp;<span class="unit">min.</span></span>
-              </div>
-              <div>
-                <span class="servings"
-                  ><img src="/assets/images/icons/chef-hat.svg" alt="Servings" />Servings:</span
-                >
-                <span class="var">{frontmatter.recipeYield}</span>
-              </div>
-            </div>
+            <!-- unnamed slot for additional content -->
+            <slot />
+            <!-- end unnamed slot for additional content -->
+             <a href="#recipe-details" class="btn white">View Recipe</a>
           </div>
         </div>
       </section>
       <section id="recipe-details">
         <div class="wrapper">
+          <div id="recipe-stats">
+            <div>
+              <span class="prep-time"
+                ><img src="/assets/images/icons/whisk.svg" alt="Prep Time" />Prep Time:</span
+              >
+              <span class="var">{frontmatter.prepTime}&nbsp;<span class="unit">min.</span></span>
+            </div>
+            <div>
+              <span class="cook-time"
+                ><img src="/assets/images/icons/flame.svg" alt="Cook Time" />Cook
+                Time:</span
+              >
+              <span class="var">{frontmatter.cookTime}&nbsp;<span class="unit">min.</span></span>
+            </div>
+            <div>
+              <span class="total-time"
+                ><img src="/assets/images/icons/clock.svg" alt="Total Time" />Total
+                Time:</span
+              >
+              <span class="var">{frontmatter.totalTime}&nbsp;<span class="unit">min.</span></span>
+            </div>
+            <div>
+              <span class="servings"
+                ><img src="/assets/images/icons/chef-hat.svg" alt="Servings" />Servings:</span
+              >
+              <span class="var">{frontmatter.recipeYield}</span>
+            </div>
+          </div>
+          
           <div>
-            <h2>Ingredients</h2>
+            <h2>Ingredients:</h2>
             <ul class="ingredients-list">
               {frontmatter.ingredients.map((ingredient: string) => (
-                <li><label><input type="checkbox" />{ingredient}</label></li>
+                <li><label><input type="checkbox" class="ingredient-checkbox" />{ingredient}</label></li>
               ))}
             </ul>
-          </div>
-          <div>
-            <h2>Instructions</h2>
+            <h2>Instructions:</h2>
             <ol class="recipe-instructions">
                 {frontmatter.instructions.map((instruction: string, index: number) => (
                   <li id={`step-${index + 1}`}>{instruction}</li>
@@ -105,3 +132,4 @@ const { frontmatter } = Astro.props;
     </main>
     <Footer />
   </body>
+</html>

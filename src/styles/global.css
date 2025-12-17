@@ -74,25 +74,29 @@ h2 {
 }
 
 a.btn {
+  font-family: var(--font-secondary);
   color: white;
   text-align: center;
   text-decoration: none;
-  background: var(--color-baby-pink);
+  background: var(--color-raspberry);
   padding: 16px 28px;
   margin-top: 18px;
   display: block;
   max-width: max-content;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 15px;
   cursor: pointer;
 }
 
-a.btn.full {
-  width: 100%;
-  max-width: none;
-  padding-left: 0;
-  padding-right: 0;
+a.btn.white {
+  background: white;
+  color: var(--color-pen-ink);
+  border: solid 1px var(--color-pen-ink);
+  border-radius: 4px;
+}
+
+a.btn.white::after {
+  content: url("/assets/images/icons/arrow-right.svg");
+  width: 7px;
+  height: 12px;
 }
 
 /* elements */
@@ -130,12 +134,13 @@ a.btn.full {
   border: solid 1px var(--color-accent);
   height: fit-content; /* may need to change later*/
   align-self: end;
+  transition: all 0.2s ease-in-out; /* smooth hover transition */
 }
 
 .recipe-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   transform: translateY(-4px);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; /* smooth hover transition */
 }
 
 .recipe-card:last-child {
@@ -172,7 +177,7 @@ a.btn.full {
   padding: 28px;
 }
 
-/* .recipe-card img.fav {
+/* .recipe-card img.save {
   position: absolute;
   top: 16px;
   left: 16px;
@@ -237,16 +242,19 @@ nav .wrapper {
 /* RecipeLayout specific */
 #recipe-introduction {
   background-color: #ffffff;
+  padding-bottom: 0;
 }
-#recipe-details {
-  background-color: var(--color-gray);
+#recipe-details h2 {
+  border-bottom: 2px dotted var(--color-pen-ink);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 #recipe-introduction .wrapper,
 #recipe-details .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: 2fr 3fr;
+  gap: 56px;
 }
 
 @media (max-width: 768px) {
@@ -258,13 +266,27 @@ nav .wrapper {
 }
 
 .recipe-image {
-  max-width: 600px;
+  width: 100%;
+  /* max-width: 600px; */
   height: auto;
+}
+
+#recipe-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  /* margin-top: 1rem; */
+  border: solid 1px var(--color-pen-ink);
+  border-radius: 12px;
+  height: min-content;
+  align-content: start; /* put at the top just below the recipe image*/
+  /* justify-items: center; */
+  padding: 32px;
 }
 
 ol.recipe-instructions {
   margin: 16px 0;
-  /* padding-left: 20px; */
+  padding-left: 28px;
 }
 
 ol.recipe-instructions li {
@@ -307,18 +329,28 @@ span.servings {
   gap: 8px;
   margin-bottom: 18px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: var(--font-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+}
+
+span.var,
+span.unit {
+  color: var(--color-raspberry);
 }
 
 span.var {
   display: block;
-  font-family: var(--font-secondary);
+  font-family: var(--font-accent);
   font-size: 32px;
+  margin-left: 32px;
 }
 
 span.unit {
-  font-family: var(--font-secondary);
+  font-family: var(--font-display-alt);
   font-size: 24px;
+  font-style: italic;
   font-weight: 400;
 }
 
@@ -352,9 +384,56 @@ span.unit {
   background-color: white;
 }
 
+/* different color for RecipeLayout, like its selected state */
+.category.pink {
+  background-color: var(--color-raspberry);
+  color: white;
+  border: solid 1px var(--color-raspberry);
+}
+
 hr.accent {
   border: none;
   border-top: 1px solid var(--color-pen-ink);
   margin: 24px 0;
   width: 42px;
+}
+
+ul.ingredients-list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+ul.ingredients-list li {
+  margin-bottom: 24px;
+}
+
+.ingredient-checkbox {
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+}
+
+/* 
+figure this out later
+.ingredient-checkbox:checked li {
+  text-decoration: line-through;
+  color: var(--color-steel-gray);
+} */
+
+.recipe-credentials {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  font-size: 14px;
+  /* color: var(--color-steel-gray); */
+  margin-top: 8px;
+}
+
+.recipe-credentials i {
+  font-style: italic;
+  color: var(--color-steel-gray);
+}
+
+.recipe-description {
+  /* margin-top: 16px; */
+  line-height: 1.75;
 }
