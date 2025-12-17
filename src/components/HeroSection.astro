@@ -3,7 +3,8 @@ import RecipeSearchFilterBar from './RecipeSearchFilterBar.astro'
 
 const { title, subtitle, text, image } = Astro.props;
 ---
-<section id="hero" style={`background-image: url(${image});`}>
+<!-- <section id="hero" style={`background-image: url(${image});`}> -->
+<section id="hero">
     <div class="wrapper">
         <div class="wrapper inner">
             <p class="subtitle">{subtitle || 'Gluten Free recipes'}</p>

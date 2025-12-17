@@ -65,20 +65,20 @@ const formattedUpdatedDate = new Date(frontmatter.dateUpdated);
             <!-- do this later - Recipe by <a href={frontmatter.author.url}>{frontmatter.author.name}</a>
              
             Need to add the text "Updated on "-->
-            <p class="recipe-credentials">Recipe by {frontmatter.author}&nbsp;<i>Published on {frontmatter.dateUpdated  ? formattedUpdatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : formattedPublishedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</i></p>
+            <p class="recipe-credentials">Recipe by {frontmatter.author}<i>Published on {frontmatter.dateUpdated  ? formattedUpdatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : formattedPublishedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</i></p> 
             <div class="categories">
                {frontmatter.categories.map((category: string) => (
                 <a href={`/recipes/${category}`} class="category pink">{category}</a>
               ))}
             </div>
             <hr class="accent"/>
-            <p class="recipe-description">
-              {frontmatter.description}
-            </p>
-            <!-- unnamed slot for additional content -->
+            <div class="description">
+              <!-- {frontmatter.description} -->
+              <!-- unnamed slot for additional content -->
             <slot />
             <!-- end unnamed slot for additional content -->
-             <a href="#recipe-details" class="btn white">View Recipe</a>
+            </div>
+             <a href="#recipe-details" class="btn white">Jump to Recipe</a>
           </div>
         </div>
       </section>
@@ -133,3 +133,24 @@ const formattedUpdatedDate = new Date(frontmatter.dateUpdated);
     <Footer />
   </body>
 </html>
+
+<style>
+  #recipe-introduction h1 {
+    margin-bottom: 28px;
+  }
+
+  .recipe-credentials {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .categories {
+    margin-bottom: 36px;
+  }
+
+/* not working */
+  .description p {
+    margin-top: 16px;
+    line-height: 1.75;
+  }
+</style>

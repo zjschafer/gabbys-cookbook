@@ -73,13 +73,7 @@ import Social from '../components/Social.astro';
     /* border-radius: 50%; */
   }
 
-  .left {
-    /* content: '';
-    background-image: url('/assets/images/about-gabby-bg.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat; */
-  }
+
 
   .social-links {
     margin-top: 20px;
@@ -106,10 +100,6 @@ import Social from '../components/Social.astro';
       width: 80%;
     }
 
-    .left {
-      /* background-image: none; */
-    }
-
     /* .profile .right h1 {
       text-align: center;
     }
@@ -117,5 +107,23 @@ import Social from '../components/Social.astro';
       text-align: center;
     } */
   }
+
+  .profile:nth-child(even) .left {
+    order: 2;
+  }
+  .profile:nth-child(even) .right {
+    order: 1;
+  }
+
+  @media (max-width: 768px) {
+
+    .profile:nth-child(even) .left {
+    order: 1;
+  }
+  .profile:nth-child(even) .right {
+    order: 2;
+  }
+
+}
 
 </style>

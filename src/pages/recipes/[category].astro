@@ -23,9 +23,7 @@ const { category } = Astro.params;
 
 ---
 <BaseLayout pageTitle={category} pageDescription={`Gluten free ${category} recipes`}>
-      <HeroSection title={category} subtitle={`Recipes in the ${category} category`} text={`Explore our collection of ${category} recipes.`} image="/assets/images/hero.jpg" />
-      <!-- <h1>Recipes in the {category} category</h1> -->
-        <!-- <h1>{category}</h1> -->
+      <HeroSection title={category} subtitle={`Recipes in the ${category} category`} text={`Explore our collection of ${category} recipes.`}  />
     
     <RecipeSection recipeList="filtered" />
 </BaseLayout>

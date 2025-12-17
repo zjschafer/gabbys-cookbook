@@ -81,7 +81,11 @@ a.btn {
   background: var(--color-raspberry);
   padding: 16px 28px;
   margin-top: 18px;
-  display: block;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 14px;
+  align-items: center;
+  justify-content: center;
   max-width: max-content;
   cursor: pointer;
 }
@@ -90,13 +94,12 @@ a.btn.white {
   background: white;
   color: var(--color-pen-ink);
   border: solid 1px var(--color-pen-ink);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 a.btn.white::after {
-  content: url("/assets/images/icons/arrow-right.svg");
-  width: 7px;
-  height: 12px;
+  content: url(/assets/images/icons/arrow-right.svg);
+  width: 100%;
 }
 
 /* elements */
