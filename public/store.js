@@ -20,11 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const recipeImageAlt = document
         .querySelector("#recipe-introduction figure img")
         .getAttribute("alt");
-      // console.log("Recipe title:", recipeTitle);
-      // console.log("Recipe subtitle:", recipeSubtitle);
-      // console.log("Recipe image src:", recipeImageSrc);
-      // console.log("Recipe image alt:", recipeImageAlt);
-      // console.log("Recipe path:", recipePath);
 
       // Create recipe object
       const recipe = {
@@ -43,5 +38,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
       alert("Recipe saved!");
     });
+  }
+
+  // NEW
+  // New code to display saved recipes on the saved recipes page
+  // Load saved recipes functionality
+  const savedRecipesContainer = document.getElementById("recipe-cards");
+
+  if (savedRecipesContainer) {
+    const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+
+    if (savedRecipes.length === 0) {
+      savedRecipesContainer.innerHTML =
+        "<p>No saved recipes. Go back and save some!</p>";
+    } else {
+      savedRecipes.forEach((recipe) => {
+        const recipeCard = document.createElement("div");
+        recipeCard.classList.add("recipe-card");
+
+        recipeCard.innerHTML = `
+          <a href=${recipe.url} class="recipe-card-link">
+        <div class="recipe-card-outer">
+          <img src=${recipe.imageSrc} alt=${recipe.imageAlt} class="recipe-card-image"/>
+          <div class="recipe-card-inner">
+                  <span class="recipe-subtitle">${recipe.subtitle}</span>
+                  <h1 class="recipe-title">${recipe.title}</h1>
+          </div>
+        </div>
+      </a>
+        `;
+
+        savedRecipesContainer.appendChild(recipeCard);
+      });
+    }
   }
 });
