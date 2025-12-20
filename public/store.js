@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         recipeCard.innerHTML = `
           <a href=${recipe.url} class="recipe-card-link">
         <div class="recipe-card-outer">
-          <img src=${recipe.imageSrc} alt=${recipe.imageAlt} class="recipe-card-image"/>
+          <img src=${recipe.imageSrc} alt=${recipe.imageAlt} class="recipe-image"/>
           <div class="recipe-card-inner">
                   <span class="recipe-subtitle">${recipe.subtitle}</span>
                   <h1 class="recipe-title">${recipe.title}</h1>
