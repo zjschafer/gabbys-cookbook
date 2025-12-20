@@ -201,7 +201,8 @@ a.btn.black-cherry {
 }
 
 /* can be p or span */
-.subtitle {
+.subtitle,
+.recipe-subtitle {
   display: block;
   font-family: var(--font-tertiary);
   font-size: 16px;

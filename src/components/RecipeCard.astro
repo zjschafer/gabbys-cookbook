@@ -10,13 +10,13 @@ const { title, subtitle, imageUrl, imageAlt, slug } = Astro.props;
             <div class="recipe-card-inner">
                 <!-- use this on the recipe cardss -->
               {subtitle.length > 0 && (
-                <span class="subtitle">
+                <span class="recipe-subtitle">
                   {subtitle.length > 2 
                     ? subtitle.slice(0, -2).join(', ') + ', ' + subtitle.slice(-2).join(' & ') 
                     : subtitle.join(' & ')}
                 </span>)
               }
-                <h1>{title}</h1>
+                <h1 class="recipe-title">{title}</h1>
             </div>
         </div>
     </a>
