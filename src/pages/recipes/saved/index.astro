@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/HeroSection.astro';
+---
+<BaseLayout>
+  <HeroSection />
+  <div class="wrapper">
+    <div class="wrapper inner">
+      <section id="saved-recipes">
+          <h2>Saved Recipes</h2>
+          <p>Saved recipes are stored on your browser's <code class="etc">localStorage</code>. It's a simple, non-invasive way to keep a few ideas for meals lined up <i>without</i> a login.</p>
+          <p class="alert">Please note that clearing your browser's cache may remove all saved recipes from this page!</p>
+          <a href="/recipes" class="btn black-cherry">All Recipes</a>
+      </section>
+    </div>
+    <div id="recipe-cards" class="recipe-cards"></div>
+  </div>
+</BaseLayout>
+
+<style>
+  code.etc {
+    font-family: var(--font-code);
+    display: inline-block;
+    background-color: var(--color-pastry-pink);
+    color: var(--color-raspberry);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  #saved-recipes {
+    line-height: 1.75;
+    text-align: center;
+  }
+  #saved-recipes h2 {
+    margin-bottom: 12px;
+  }
+  #saved-recipes p{
+    font-family: var(--font-secondary);
+    color: var(--color-steel-gray);
+  }
+  .alert {
+    text-align: center;
+    font-style: italic;
+    border-left: 2px solid var(--color-raspberry);
+  }
+</style>
+
+<script src="/store.js" is:inline></script>

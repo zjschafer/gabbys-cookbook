@@ -8,6 +8,8 @@ author: "Gabby Lisella Schafer"
 image:
   url: "https://placehold.co/293x366"
   alt: "Placeholder image goes here"
+  author: "Zachary Schafer"
+  source: "Gabby's Cookbook"
 prepTime: 10
 cookTime: 20
 totalTime: 30

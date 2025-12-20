@@ -102,6 +102,13 @@ a.btn.white::after {
   width: 100%;
 }
 
+a.btn.black-cherry {
+  background: var(--color-black-cherry);
+  width: 100%;
+  border-radius: 4px;
+  margin: 40px auto;
+}
+
 /* elements */
 
 #hero h1 {
@@ -423,12 +430,22 @@ figure this out later
   color: var(--color-steel-gray);
 } */
 
+#recipe-introduction h1 {
+  margin-bottom: 28px;
+}
+
+.categories:not(#filter .categories) {
+  margin-bottom: 36px;
+}
+
 .recipe-credentials {
   font-family: var(--font-secondary);
   font-weight: 400;
-  font-size: 14px;
-  /* color: var(--color-steel-gray); */
+  font-size: 16px;
+  color: var(--color-steel-gray);
   margin-top: 8px;
+  margin-bottom: 28px;
+  line-height: 1.75;
 }
 
 .recipe-credentials i {
@@ -439,4 +456,58 @@ figure this out later
 .recipe-description {
   /* margin-top: 16px; */
   line-height: 1.75;
+}
+
+figure.recipe-image-figure {
+  margin: 0;
+  position: relative;
+}
+
+figure.recipe-image {
+  width: 100%;
+  height: auto;
+}
+
+figcaption.recipe-figure {
+  margin-top: 16px;
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  color: var(--color-steel-gray);
+}
+
+span.recipe-figure-author,
+span.recipe-author {
+  color: var(--color-pen-ink);
+  text-decoration: underline;
+}
+
+#trust {
+  position: relative;
+}
+
+#save-share-buttons {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  display: flex;
+  /* gap: 24px; */
+  background-color: white;
+  border: 1px solid var(--color-pen-ink);
+}
+
+#save-share-buttons img {
+  width: 28px;
+  height: 28px;
+}
+
+#save-share-buttons > div {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+#save-share-buttons > div:first-child {
+  border-right: 1px solid var(--color-pen-ink);
 }

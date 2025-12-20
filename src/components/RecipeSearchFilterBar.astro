@@ -5,6 +5,7 @@ import Filter from './Filter.astro';
 
 
 <div id="recipe-search">
+    <!-- search feature to add later - Algolia https://www.algolia.com/ -->
     <!-- <div class="wrapper">
         <div class="bar-top">
             <img class="saved-recipes" src="/assets/images/icons/heart-saved.svg" alt="saved recipes">
@@ -14,7 +15,7 @@ import Filter from './Filter.astro';
     </div> -->
     <div class="wrapper">
         <div class="bar-top">
-            <img class="saved-recipes" src="/assets/images/icons/heart-saved.svg" alt="saved recipes">
+            <a href="/recipes/saved"><img class="saved-recipes" src="/assets/images/icons/heart-saved.svg" alt="saved recipes"></a>
             <Filter />
         </div>
     </div>
@@ -35,6 +36,7 @@ import Filter from './Filter.astro';
     img.saved-recipes {
         /* width: 32px;
         height: 32px; */
+        cursor: pointer;
     }
 
     #recipe-search .wrapper {
