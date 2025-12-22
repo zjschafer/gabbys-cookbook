@@ -46,17 +46,21 @@ const currentPathname = Astro.url.pathname;
         <div class="wrapper">
           <div id="trust">
             <figure class="recipe-image-figure">
-              <img
-                class="recipe-image"
-                src={frontmatter.image.url}
-                alt={frontmatter.image.alt}
-              />
+              <div>
+                <img
+                  class="recipe-image"
+                  src={frontmatter.image.url}
+                  alt={frontmatter.image.alt}
+                />
+                <div id="save-share-buttons">
+                  <div id="save-button"><img src="/assets/images/icons/heart-foot.svg" alt="Save"/> <span>Save</span></div>
+                  <div id="share-button"><img src="/assets/images/icons/share.svg" alt="Share"/> <span>Share</span>
+                </div>
+              </div>
+              </div>
               <figcaption class="recipe-figure">Photo by <span class="recipe-figure-author">{frontmatter.image.author}</span> | <i>{frontmatter.image.source}</i></figcaption>
             </figure>
-            <div id="save-share-buttons">
-              <div id="save-button"><img src="/assets/images/icons/heart-foot.svg" alt="Save"/> <span>Save</span></div>
-              <div id="share-button"><img src="/assets/images/icons/share.svg" alt="Share"/> <span>Share</span></div>
-            </div>
+            
           </div>
 
           <div>
@@ -82,12 +86,10 @@ const currentPathname = Astro.url.pathname;
               ))}
             </div>
             <hr class="accent"/>
-            <div class="description">
-              <!-- {frontmatter.description} -->
-              <!-- unnamed slot for additional content -->
+            
+            <!-- additional content -->
             <slot />
-            <!-- end unnamed slot for additional content -->
-            </div>
+
              <a href="#recipe-details" class="btn white">Jump to Recipe</a>
           </div>
         </div>
@@ -126,8 +128,8 @@ const currentPathname = Astro.url.pathname;
           <div>
             <h2>Ingredients:</h2>
             <ul class="ingredients-list">
-              {frontmatter.ingredients.map((ingredient: string) => (
-                <li><label><input type="checkbox" class="ingredient-checkbox" />{ingredient}</label></li>
+              {frontmatter.ingredients.map((ingredient: string, index: number) => (
+                <li><input type="checkbox" class="ingredient-checkbox" id={`ingredient-${index + 1}`} /><label for={`ingredient-${index + 1}`}>{ingredient}</label></li>
               ))}
             </ul>
             <h2>Instructions:</h2>
@@ -146,12 +148,8 @@ const currentPathname = Astro.url.pathname;
 </html>
 
 <style>
- 
-/* not working */
-  .description p {
-    margin-top: 16px;
-    line-height: 1.75;
-  }
+
+
 </style>
 
  

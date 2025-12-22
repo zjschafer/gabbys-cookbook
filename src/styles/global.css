@@ -198,6 +198,8 @@ a.btn.black-cherry {
 
 .recipe-card img.recipe {
   width: 100%; /* 303px x 378px */
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
 }
 
 /* can be p or span */
@@ -278,8 +280,9 @@ nav .wrapper {
 
 .recipe-image {
   width: 100%;
-  /* max-width: 600px; */
   height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
 }
 
 #recipe-stats {
@@ -416,20 +419,28 @@ ul.ingredients-list {
 
 ul.ingredients-list li {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  /* cursor: pointer; */
+}
+
+ul.ingredients-list li label {
+  cursor: pointer;
 }
 
 .ingredient-checkbox {
   margin-right: 12px;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
 }
 
-/* 
-figure this out later
-.ingredient-checkbox:checked li {
+/* strikethrough ingredient when checked off */
+ul.ingredients-list li input[type="checkbox"]:checked + label {
   text-decoration: line-through;
   color: var(--color-steel-gray);
-} */
+}
 
 #recipe-introduction h1 {
   margin-bottom: 28px;
@@ -464,10 +475,12 @@ figure.recipe-image-figure {
   position: relative;
 }
 
-figure.recipe-image {
+/* figure.recipe-image {
   width: 100%;
   height: auto;
-}
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+} */
 
 figcaption.recipe-figure {
   margin-top: 16px;
@@ -511,4 +524,18 @@ span.recipe-author {
 
 #save-share-buttons > div:first-child {
   border-right: 1px solid var(--color-pen-ink);
+}
+
+.recipe-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.recipe-card-outer {
+  border: 1px solid var(--color-pen-ink);
+}
+
+.recipe-card-inner .subtitle {
+  font-size: 14px;
+  font-weight: 500;
 }

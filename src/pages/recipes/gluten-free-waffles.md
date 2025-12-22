@@ -6,10 +6,10 @@ description: "Light, fluffy gluten free waffles topped with fresh blueberries, w
 datePublished: 2025-11-07
 author: "Gabby Lisella Schafer"
 image:
-  url: "https://placehold.co/293x366"
+  url: "https://as2.ftcdn.net/v2/jpg/02/08/98/11/1000_F_208981141_XEbopkuGzzveNdNe49jGD8p7JBCsVuPt.jpg"
   alt: "Placeholder image goes here"
-  author: "Zachary Schafer"
-  source: "Gabby's Cookbook"
+  author: "Yulia Furman"
+  source: "AdobeStock_208981141_Preview.jpeg"
 prepTime: 10
 cookTime: 20
 totalTime: 30
@@ -43,6 +43,11 @@ categories: ["breakfast"]
 flavorProfiles: ["sweet", "savory"]
 ---
 
-## Gabby's Notes:
+Golden and homemade, these light and fluffy gluten-free waffles look irresistibly crisp on the outside and tender in the center, fresh from the waffle iron. A soft dollop of freshly churned butter melts into the warm pockets, adding a rich, creamy sheen that highlights their airy texture. Juicy berries—strawberries, blueberries, and raspberries—are scattered on top for bright pops of color and natural sweetness, while a few mint leaves add a fresh, fragrant garnish. The result is a cozy, wholesome breakfast that feels both comforting and special, perfect for savoring slowly.
 
-Made with raw oyster mushrooms and pickled radishes, this soba noodle salad is a refreshing and healthy dish that combines the nutty flavor of soba noodles with the earthy taste of raw oyster mushrooms. The tangy crunch of pickled radishes sends it over the edge.
+<style>
+p {
+    line-height: 2.25;
+    font-size: 16px;
+}
+</style>
