@@ -11,6 +11,8 @@ const { frontmatter } = Astro.props;
 const formattedPublishedDate = new Date(frontmatter.datePublished)
 const formattedUpdatedDate = new Date(frontmatter.dateUpdated);
 
+const currentPathname = Astro.url.pathname;
+
 ---
 
 <!DOCTYPE html>
@@ -39,14 +41,9 @@ const formattedUpdatedDate = new Date(frontmatter.dateUpdated);
         <Navigation />
     </header>
     <main>
+      <article id="path-container" data-pathname={currentPathname}>
       <section id="recipe-introduction">
         <div class="wrapper">
-          
-            <!-- <img
-              class="recipe-image"
-              src={frontmatter.image.url}
-              alt={frontmatter.image.alt}
-            /> -->
           <div id="trust">
             <figure class="recipe-image-figure">
               <img
@@ -142,6 +139,7 @@ const formattedUpdatedDate = new Date(frontmatter.dateUpdated);
           </div>
         </div>
       </section>
+      </article>
     </main>
     <Footer />
   </body>
@@ -156,5 +154,5 @@ const formattedUpdatedDate = new Date(frontmatter.dateUpdated);
   }
 </style>
 
-<!-- ... checkout console to break this up. I only want the loadSavedRecipes function on the saved recipes page -->
+ 
 <script src="/store.js" is:inline></script>

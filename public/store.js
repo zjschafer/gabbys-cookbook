@@ -2,12 +2,13 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Save button functionality
+  const container = document.querySelector("article"); // article
+
   const saveButton = document.getElementById("save-button");
 
   if (saveButton) {
     saveButton.addEventListener("click", function () {
-      const recipePath = window.location.pathname;
-
+      const recipePath = container.dataset.pathname; // Get the recipe path from data attribute
       const recipeTitle = document.querySelector(
         "#recipe-introduction h1"
       ).textContent;
@@ -53,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "<p>No saved recipes. Go back and save some!</p>";
     } else {
       savedRecipes.forEach((recipe) => {
-        const recipeCard = document.createElement("div");
+        const recipeCard = document.createElement("article");
         recipeCard.classList.add("recipe-card");
 
         recipeCard.innerHTML = `
-          <a href=${recipe.url} class="recipe-card-link">
+          <a href=${recipe.path} class="recipe-card-link">
         <div class="recipe-card-outer">
           <img src=${recipe.imageSrc} alt=${recipe.imageAlt} class="recipe-image"/>
           <div class="recipe-card-inner">
