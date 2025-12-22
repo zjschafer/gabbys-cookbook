@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/RecipeLayout.astro
 title: "Gluten Free Waffles"
-subtitle: "Made with fresh blueberries & warmed maple syrup"
+
 description: "Light, fluffy gluten free waffles topped with fresh blueberries, whipped cream, warmed maple syrup, and a side of mouthwatering hickory smoked bacon."
 datePublished: 2025-11-07
 author: "Gabby Lisella Schafer"

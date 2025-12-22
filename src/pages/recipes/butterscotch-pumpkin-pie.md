@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/RecipeLayout.astro
 title: "Butterscotch Pumpkin Pie"
-subtitle: "Made with fresh pumpkin and butterscotch chips"
+
 description: "Description about the pumpkin pie"
 datePublished: 2025-12-22
 author: "Gabby Lisella Schafer"

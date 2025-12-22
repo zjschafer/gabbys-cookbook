@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/RecipeLayout.astro
 title: "Zachary's Favorite Homemade Vanilla Pudding"
-subtitle: "Made with real vanilla bean"
+
 description: "This homemade vanilla pudding tastes luxuriously rich and comforting, with a depth of flavor that only pure vanilla bean can provide."
 datePublished: 2025-12-22
 author: "Gabby Lisella Schafer"
