@@ -4,6 +4,8 @@ import Footer from '../components/Footer.astro';
 import Meta from '../components/Meta.astro';
 import RecipeJSONLD from '../components/RecipeJSONLD.astro';
 
+import WakeLockToggle from '../components/WakeLockToggle.astro';
+
 
 // USE ONLY FOR MD LAYOUTS
 const { frontmatter } = Astro.props;
@@ -124,6 +126,8 @@ const currentPathname = Astro.url.pathname;
                 <span class="var">{frontmatter.recipeYield}</span>
               </div>
             </div>
+
+            <WakeLockToggle client:load />
             
             <div>
               <h2>Ingredients:</h2>

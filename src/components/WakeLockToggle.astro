@@ -1,0 +1,86 @@
+---
+// Component Script (runs on the server during build)
+---
+
+<!-- whatever AI gave me -->
+
+<!-- Component Template (rendered to HTML) -->
+<button id="toggle-wake-lock" >Toggle Wake Lock API</button>
+<p class="msg">Status: <span id="status">Not supported or inactive</span></p>
+
+<!-- Client-side Script (runs in the browser) -->
+<script>
+  // JavaScript to run in the browser
+  const button = document.getElementById('toggle-wake-lock');
+  const statusElem = document.getElementById('status');
+  let wakeLock = null;
+
+  // Function to request the wake lock
+  const requestWakeLock = async () => {
+    try {
+      wakeLock = await navigator.wakeLock.request('screen');
+      statusElem.textContent = 'Wake Lock is active!';
+      wakeLock.addEventListener('release', () => {
+        statusElem.textContent = 'Wake Lock released, screen can sleep.';
+      });
+    } catch (err) {
+      // The Wake Lock request has failed - usually system related
+      statusElem.textContent = `${err.name}, ${err.message}`;
+    }
+  };
+
+  // Function to release the wake lock
+  const releaseWakeLock = async () => {
+    if (wakeLock) {
+      await wakeLock.release();
+      wakeLock = null;
+      statusElem.textContent = 'Wake Lock released, screen can sleep.';
+    }
+  };
+
+  // Check for API support and add event listener
+  if ('wakeLock' in navigator) {
+    statusElem.textContent = 'Screen Wake Lock API supported (inactive).';
+    button.addEventListener('click', () => {
+      if (wakeLock) {
+        releaseWakeLock();
+      } else {
+        requestWakeLock();
+      }
+    });
+  } else {
+    button.disabled = true;
+    statusElem.textContent = 'Wake lock is not supported by this browser.';
+  }
+</script>
+
+<style>
+  /* Component Styles */
+
+  #toggle-wake-lock,
+  .msg,
+   #status {
+    display: none;
+  }
+
+  @media (max-width: 768px){
+  #toggle-wake-lock {
+    display: block;
+    color:var(--color-pen-ink);
+    margin-top: 10px;
+    background: white;
+    padding: 8px 12px;
+    border: 1px solid var(--color-pen-ink);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  p.msg{
+    display:block;
+  }
+  #status { 
+    font-weight: bold;
+    display: inline;
+  }
+}
+
+</style>
