@@ -50,6 +50,12 @@ nav {
   padding: 28px 0;
 }
 
+@media (max-width: 768px) {
+  main {
+    padding: 0;
+  }
+}
+
 /* typography */
 h1,
 h2,

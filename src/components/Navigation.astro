@@ -5,8 +5,8 @@
     <div class="wrapper">
         <div>
             <a href="/"
-            ><img src="/../assets/logo.svg" alt="Gabby's Cookbook Logo"
-            /></a>
+            ><img id="logo" src="/../assets/logo.svg" alt="Gabby's Cookbook Logo"
+            /><img id="logo-mobile" src="/../assets/logo-mobile.svg" alt="Gabby's Cookbook Logo"/></a>
         </div>
         <div class="nav-links">
             <a href="/recipes">Recipes</a>
@@ -14,5 +14,105 @@
             <!-- make this a "copy" link -->
             <a href="mailto:gabbymadeitglutenfree@gmail.com">Contact</a>
         </div>
+        <!-- mobile menu -->
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
     </div>
 </nav>
+
+<style>
+    /* mobile menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 28px;
+  height: 2px;
+  background-color: var(--color-pen-ink);
+}
+
+.hamburger .bar:first-child {
+  margin-bottom: 6px;
+}
+
+.hamburger .bar:last-child {
+  margin-top: 6px;
+}
+
+#logo-mobile {
+    display: none;
+  }
+
+@media (max-width: 1080px) {
+    nav {
+    padding-top:14px;
+    padding-bottom:14px;
+    }
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    justify-content: center;
+  }
+
+  #logo {
+    display: none;
+  }
+  #logo-mobile {
+    display: block;
+    height: 80px;
+  }
+}
+
+.hamburger.toggle .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.toggle .bar:first-child {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.toggle .bar:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-links.active {
+  display: block !important;
+  position: absolute;
+  top: 108px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid var(--color-pen-ink);
+  border-bottom: 1px solid var(--color-pen-ink);
+  z-index: 99;
+}
+
+.nav-links.active a {
+  display: block;
+  padding: 22px 28px;
+  text-align: center;
+}
+
+
+
+@media (max-width: 600px) {
+  .nav-links.active {
+    /* top: 90px; */
+    box-sizing: border-box;
+  }
+}
+
+.nav-links.active a {
+  /* text-align: center;
+  padding: 28px 0; */
+}
+</style>
+
+<script src="/navigate.js" is:inline></script>
