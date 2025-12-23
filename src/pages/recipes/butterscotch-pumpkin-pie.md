@@ -35,11 +35,11 @@ instructions:
     "Reduce temperature to 350°. Bake 40-45 min. longer or until knife comes out clean.",
   ]
 recipeYield: 8
-recipeCategory: Dessert
+recipeCategory: Entree
 recipeCuisine: American
 
 # Recipe categories for blog
-categories: ["dessert"]
+categories: ["entree"]
 flavorProfiles: ["sweet", "flaky"]
 ---
 

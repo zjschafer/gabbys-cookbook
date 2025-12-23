@@ -1,9 +1,20 @@
 ---
 import RecipeSearchFilterBar from './RecipeSearchFilterBar.astro'
 
-const { title, subtitle, text, image } = Astro.props;
+const { title, subtitle, text} = Astro.props;
+
+const imageUrl = `url("${Astro.props.imageUrl}")`;
+const imageMobileUrl = `url("${Astro.props.imageMobileUrl}")`;
+
+interface Props {
+    title: string;
+    subtitle: string;
+    text: string;
+    imageUrl?: string;
+    imageMobileUrl?: string;
+}
 ---
-<!-- <section id="hero" style={`background-image: url(${image});`}> -->
+
 <section id="hero">
     <div class="wrapper">
         <div class="wrapper inner">
@@ -19,15 +30,52 @@ const { title, subtitle, text, image } = Astro.props;
     </div>
 </section>
 
-<style>
+<style define:vars={{imageUrl, imageMobileUrl}}>
     #hero {
-        /* background: url('/assets/images/hero.jpg') no-repeat center center fixed; */
-        background: no-repeat center center fixed;
+        /* for background image opacity */
+        /* position: relative; */
+        /* width: 100%; */
+        /* height: 320px;  */
+        /* Set a specific height to make the background visible */
+        background-image: var(--imageUrl);
+        padding: 40px 0;
+        background-position: center center;
+        background-size: cover;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* #hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-image: var(--imageUrl);
+        background-position: center center;
         background-size: cover;
-        padding: 40px 0;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0.2;
+        z-index: -1; 
+    } */
+
+    @media (max-width: 768px) {
+
+        #hero {
+            background-image: var(--imageMobileUrl);
+            /* height: 480px; Adjust height for mobile */
+        }
+        /* #hero::before {
+            background-image: var(--imageMobileUrl);
+        } */
+
     }
 
     #hero .wrapper.inner {
